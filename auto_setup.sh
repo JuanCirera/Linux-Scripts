@@ -22,14 +22,14 @@ function firewall_setup(){
 
 # zsh
 function zsh_install(){
-	sudo apt install zsh 
+	sudo apt install -y zsh
 	# change user shell for zsh
 	sudo usermod --shell /bin/bash $USER
 }
 
 # p10k
 function p10k_install(){
-	sudo apt install git
+	sudo apt install -y git
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 	echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 }
@@ -57,7 +57,10 @@ function zsh_plugins_install(){
 
 # docker & docker-compose
 function docker_install(){
-	sudo apt-get install ca-certificates curl gnupg
+
+	sudo apt-get update
+
+	sudo apt-get install -y ca-certificates curl gnupg
 	install -m 0755 -d /etc/apt/keyrings
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	chmod a+r /etc/apt/keyrings/docker.gpg
@@ -66,9 +69,10 @@ function docker_install(){
 	"deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
 	"$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
 	tee /etc/apt/sources.list.d/docker.list > /dev/null
+	
 	sudo apt-get update
 
-	sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 	# docker postinstall
 	sudo usermod -aG docker $USER
@@ -95,24 +99,36 @@ while true; do
     case $option in
         1)
             full_install
+			echo " "
+			echo "Setup completed!"
             ;;
         2)
             zsh_install
             ;;
         3)
             p10k_install
+			echo " "
+			echo "powerlevel10K added!"
             ;;
         4)
             lsd_install
+			echo " "
+			echo "lsd icons installed!"
             ;;
 		5)
 			zsh_plugins_install
+			echo " "
+			echo "zsh plugins added!"
             ;;
 		6)
 			firewall_setup
+			echo " "
+			echo "ufw firewall enabled!"
             ;;
 		7)
 			docker_install
+			echo " "
+			echo "docker install completed!"
             ;;
         0)
             echo "Exiting..."
