@@ -45,7 +45,7 @@ function zsh_plugins_install(){
 	# make files for zsh plugins
 	sudo mkdir /usr/share/zsh-autosuggestions/
 	sudo touch /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-	sudo curl https://raw.githubusercontent.com/JuanCirera/Linux-Scripts/main/utils/zsh-autosuggestions.zsh > /usr/share/zsh-sudo/zsh-autosuggestions.zsh
+	sudo curl https://raw.githubusercontent.com/JuanCirera/Linux-Scripts/main/utils/zsh-autosuggestions.zsh > /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 	sudo mkdir /usr/share/zsh-sudo/
 	sudo touch /usr/share/zsh-sudo/sudo.plugin.zsh
@@ -95,7 +95,6 @@ while true; do
     case $option in
         1)
             full_install
-			# echo "Installati¡on completed!"
             ;;
         2)
             zsh_install
