@@ -4,17 +4,17 @@
 
 while true; do
     clear
-	echo "Automated setup for linux hosts. Lambda Project"
-	echo " "
+    echo "Automated setup for linux hosts. Lambda Project"
+    echo " "
     echo "Menu:"
     echo "1. Full install"
     echo "2. Install and setup zsh"
     echo "3. Install P10K"
-	echo "4. Install P10K"
+    echo "4. Install P10K"
     echo "5. Install zsh plugins"
     echo "6. Enable firewall (ufw)"
-	echo "7. Install docker"
-	echo "0. Exit"
+    echo "7. Install docker"
+    echo "0. Exit"
 
     read -p "Please, select a option (1-6): " option
 
