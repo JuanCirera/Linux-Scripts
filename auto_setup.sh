@@ -81,7 +81,7 @@ while true; do
     echo "1. Full install"
     echo "2. Install and setup zsh"
     echo "3. Install P10K"
-    echo "4. Install P10K"
+    echo "4. Install lsd icons"
     echo "5. Install zsh plugins"
     echo "6. Enable firewall (ufw)"
     echo "7. Install docker"
