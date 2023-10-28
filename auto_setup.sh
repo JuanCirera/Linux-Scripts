@@ -35,8 +35,8 @@ function p10k_install(){
 
 # lsd icons
 function lsd_install(){
-	wget https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb /tmp
-	dpkg -i /tmp/lsd_0.23.1_amd64.deb
+	wget -P /tmp https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
+	sudo dpkg -i /tmp/lsd_0.23.1_amd64.deb
 }
 
 # zsh plugins
