@@ -37,7 +37,9 @@ function p10k_install(){
 # Nerd fonts
 function nerd_fonts_install(){
 	wget -P /tmp https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip
-	sudo cp /tmp/Hack/*.ttf /usr/share/fonts/truetype/
+	sudo unzip -d /tmp/Hack /tmp/Hack.zip
+	sudo mkdir /usr/share/fonts/truetype/HackNF
+	sudo cp /tmp/Hack/*.ttf /usr/share/fonts/truetype/HackNF
 	sudo fc-cache -f -v
 }
 
