@@ -68,22 +68,22 @@ function zsh_plugins_install(){
 # docker & docker-compose
 function docker_install(){
 
-	sudo apt-get update
-
-	sudo apt-get install -y ca-certificates curl gnupg
-	install -m 0755 -d /etc/apt/keyrings
-	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-	chmod a+r /etc/apt/keyrings/docker.gpg
-
-	custom_codename=cat /etc/upstream-release/lsb-release | grep "DISTRIB_CODENAME" | cut -d'=' -f2
+	custom_codename=sudo cat /etc/upstream-release/lsb-release | grep "DISTRIB_CODENAME" | cut -d'=' -f2
 	codename=""
-	distID=lsb_release -si
+	distID=sudo lsb_release -si
 
 	if [ "$distID" != "Ubuntu" ]; then
     	codename=$custom_codename
 	else
 		codename=$VERSION_CODENAME
 	fi
+
+	sudo apt-get update
+
+	sudo apt-get install -y ca-certificates curl gnupg
+	install -m 0755 -d /etc/apt/keyrings
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+	chmod a+r /etc/apt/keyrings/docker.gpg
 
 	echo \
 	"deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
