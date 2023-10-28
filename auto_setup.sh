@@ -9,6 +9,7 @@ function full_install(){
 	zsh_plugins_install
 	lsd_install
 	docker_install
+	neofetch_install
 }
 
 # UFW Firewall
@@ -87,6 +88,10 @@ function docker_install(){
 	sudo usermod -aG docker $USER
 }
 
+function neofetch_install(){
+	sudo apt install -y neofetch
+}
+
 while true; do
     clear
     echo "Automated setup for linux hosts. Lambda Project"
@@ -100,6 +105,7 @@ while true; do
     echo "6. Install zsh plugins"
     echo "7. Enable firewall (ufw)"
     echo "8. Install docker"
+	echo "9. Install neofetch"
     echo "0. Exit"
 
     read -p "Please, select a option (1-6): " option
@@ -144,6 +150,11 @@ while true; do
 			docker_install
 			echo " "
 			echo "docker install completed!"
+            ;;
+		9)
+			neofetch_install
+			echo " "
+			echo "neofetch installed!"
             ;;
         0)
             echo "Exiting..."
