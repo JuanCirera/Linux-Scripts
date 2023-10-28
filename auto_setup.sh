@@ -34,6 +34,13 @@ function p10k_install(){
 	echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
 }
 
+# Nerd fonts
+function nerd_fonts_install(){
+	wget -P /tmp https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Hack.zip
+	sudo cp /tmp/Hack/*.ttf /usr/share/fonts/truetype/
+	sudo fc-cache -f -v
+}
+
 # lsd icons
 function lsd_install(){
 	wget -P /tmp https://github.com/Peltoche/lsd/releases/download/0.23.1/lsd_0.23.1_amd64.deb
@@ -87,9 +94,10 @@ while true; do
     echo "2. Install and setup zsh"
     echo "3. Install P10K"
     echo "4. Install lsd icons"
-    echo "5. Install zsh plugins"
-    echo "6. Enable firewall (ufw)"
-    echo "7. Install docker"
+	echo "5. Install Nerd Fonts"
+    echo "6. Install zsh plugins"
+    echo "7. Enable firewall (ufw)"
+    echo "8. Install docker"
     echo "0. Exit"
 
     read -p "Please, select a option (1-6): " option
@@ -116,16 +124,21 @@ while true; do
 			echo "lsd icons installed!"
             ;;
 		5)
+			nerd_fonts_install
+			echo " "
+			echo "Nerd fonts installed!"
+            ;;
+		6)
 			zsh_plugins_install
 			echo " "
 			echo "zsh plugins added!"
             ;;
-		6)
+		7)
 			firewall_setup
 			echo " "
 			echo "ufw firewall enabled!"
             ;;
-		7)
+		8)
 			docker_install
 			echo " "
 			echo "docker install completed!"
