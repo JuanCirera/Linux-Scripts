@@ -13,7 +13,7 @@ function full_install(){
 
 # UFW Firewall
 function firewall_setup(){
-	sudo enable ufw
+	sudo ufw enable
 	sudo ufw allow 22/tcp
 }
 
