@@ -4,6 +4,8 @@
 
 while true; do
     clear
+	echo "Automated setup for linux hosts. Lambda Project"
+	echo " "
     echo "Menu:"
     echo "1. Full install"
     echo "2. Install and setup zsh"
@@ -19,7 +21,7 @@ while true; do
     case $option in
         1)
             full_install
-			# echo "Installation completed!"
+			# echo "Installati¡on completed!"
             ;;
         2)
             zsh_install
