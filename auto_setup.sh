@@ -36,6 +36,9 @@ while true; do
 			zsh_plugins_install
             ;;
 		6)
+			firewall_setup
+            ;;
+		7)
 			docker_install
             ;;
         0)
