@@ -89,6 +89,8 @@ while true; do
 
     read -p "Please, select a option (1-6): " option
 
+	echo " "
+
     case $option in
         1)
             full_install
@@ -120,6 +122,8 @@ while true; do
             echo "Invalid option. Please, select a valid option (1-5)."
             ;;
     esac
+
+	echo " "
 
     read -p "Press Enter to continue..."
 done
