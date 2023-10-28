@@ -55,11 +55,11 @@ function zsh_plugins_install(){
 	# make files for zsh plugins
 	sudo mkdir /usr/share/zsh-autosuggestions/
 	sudo touch /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-	sudo curl -o https://raw.githubusercontent.com/JuanCirera/Linux-Scripts/main/utils/zsh-autosuggestions.zsh /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+	sudo curl -o /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh https://raw.githubusercontent.com/JuanCirera/Linux-Scripts/main/utils/zsh-autosuggestions.zsh 
 
 	sudo mkdir /usr/share/zsh-sudo/
 	sudo touch /usr/share/zsh-sudo/sudo.plugin.zsh
-	sudo curl -o https://raw.githubusercontent.com/JuanCirera/Linux-Scripts/main/utils/sudo.plugin.zsh /usr/share/zsh-sudo/sudo.plugin.zsh
+	sudo curl -o /usr/share/zsh-sudo/sudo.plugin.zsh https://raw.githubusercontent.com/JuanCirera/Linux-Scripts/main/utils/sudo.plugin.zsh 
 
 	# zshrc
 	curl https://raw.githubusercontent.com/JuanCirera/Linux-Scripts/main/utils/.zshrc >> ~/.zshrc
