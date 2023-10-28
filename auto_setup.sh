@@ -75,9 +75,19 @@ function docker_install(){
 	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 	chmod a+r /etc/apt/keyrings/docker.gpg
 
+	custom_codename=cat /etc/upstream-release/lsb-release | grep "DISTRIB_CODENAME" | cut -d'=' -f2
+	codename=""
+	distID=lsb_release -si
+
+	if [ "$distID" != "Ubuntu" ]; then
+    	codename=$custom_codename
+	else
+		codename=$VERSION_CODENAME
+	fi
+
 	echo \
 	"deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-	"$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+	"$(. /etc/os-release && echo "$codename")" stable" | \
 	tee /etc/apt/sources.list.d/docker.list > /dev/null
 	
 	sudo apt-get update
