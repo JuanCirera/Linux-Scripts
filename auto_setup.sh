@@ -108,7 +108,7 @@ while true; do
 	echo "9. Install neofetch"
     echo "0. Exit"
 
-    read -p "Please, select a option (1-6): " option
+    read -p "Please, select a option: " option
 
 	echo " "
 
@@ -161,7 +161,7 @@ while true; do
             exit 0
             ;;
         *)
-            echo "Invalid option. Please, select a valid option (1-5)."
+            echo "Invalid option. Please, select a valid option (1-9)."
             ;;
     esac
 
