@@ -68,7 +68,7 @@ function zsh_plugins_install(){
 # docker & docker-compose
 function docker_install(){
 
-	custom_codename=sudo cat /etc/upstream-release/lsb-release | grep "DISTRIB_CODENAME" | cut -d'=' -f2
+	custom_codename=$(sudo cat /etc/upstream-release/lsb-release | grep "DISTRIB_CODENAME" | cut -d'=' -f2)
 	codename=""
 	distID=sudo lsb_release -si
 
