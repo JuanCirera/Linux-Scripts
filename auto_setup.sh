@@ -104,7 +104,7 @@ function neofetch_install(){
 
 while true; do
     clear
-    echo "Automated setup for linux hosts. Lambda Project"
+    echo "Automated setup for linux hosts."
     echo " "
     echo "Menu:"
     echo "1. Full install"
