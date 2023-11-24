@@ -68,16 +68,16 @@ function zsh_plugins_install(){
 # docker & docker-compose
 function docker_install(){
 
-	custom_codename=$(sudo cat /etc/upstream-release/lsb-release | grep "DISTRIB_CODENAME" | cut -d'=' -f2)
+	# custom_codename=$(sudo cat /etc/upstream-release/lsb-release | grep "DISTRIB_CODENAME" | cut -d'=' -f2)
 	codename=""
-	distID=sudo lsb_release -si
+	distID=$(sudo lsb_release -si)
 
 	case $distID in
         Zorin)
-            $codename=focal
+            codename=focal
             ;;
         *)
-			$codename=$VERSION_CODENAME
+			codename=$VERSION_CODENAME
             ;;
 	esac
 
