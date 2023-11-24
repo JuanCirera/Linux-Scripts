@@ -72,11 +72,20 @@ function docker_install(){
 	codename=""
 	distID=sudo lsb_release -si
 
-	if [ "$distID" != "Ubuntu" ]; then
-    	codename=$custom_codename
-	else
-		codename=$VERSION_CODENAME
-	fi
+	case $distID in
+        Zorin)
+            $codename=focal
+            ;;
+        *)
+			$codename=$VERSION_CODENAME
+            ;;
+	esac
+
+	# if [ "$distID" != "Ubuntu" ]; then
+    # 	codename=$custom_codename
+	# else
+	# 	codename=$VERSION_CODENAME
+	# fi
 
 	sudo apt-get update
 

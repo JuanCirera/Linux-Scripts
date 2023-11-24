@@ -12,7 +12,7 @@ ExecStart = $script_path
 WantedBy=basic.target
 "
 
-paramMissing=false
+#paramMissing=false
 path="/etc/systemd/system/$name".service
 
 
@@ -57,19 +57,24 @@ while [[ $# -gt 0 ]]; do
 done
 
 function createService(){
-    # Recarga systemd para que tome en cuenta el nuevo servicio
+    
+    # Service file creation  	
+    touch $path
+    echo $serviceContent > $path
+
+    # Reload systemd to recognise the new service
     systemctl daemon-reload
 
-    # Habilita y comienza el servicio
+    # Enables and starts service
     systemctl enable "$name"
     systemctl start "$name"
-	systemctl status "$name"
+    systemctl status "$name"
 
-	echo "Servicio creado con éxito"
+    echo "Service created!"
 }
 
 if [[ -z "$name" ]] || [[ -z "$description" ]] || [[ -z "$scriptPath" ]]; then
-	paramMissing=true
+	#paramMissing=true
 	echo "Params -n, -d and -p must be set"
 else
 	createService
