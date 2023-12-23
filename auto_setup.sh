@@ -25,7 +25,7 @@ function firewall_setup(){
 function zsh_install(){
 	sudo apt install -y zsh
 	# change user shell for zsh
-	sudo usermod --shell /bin/bash $USER
+	sudo usermod --shell /bin/zsh $USER
 }
 
 # p10k
