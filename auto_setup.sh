@@ -3,13 +3,14 @@
 # This script install and setup ubuntu server for production or devOps deploy
 
 function full_install(){
+	neovim_install
 	firewall_setup
 	zsh_install
 	p10k_install
 	zsh_plugins_install
 	lsd_install
 	docker_install
-	neofetch_install
+	fastfetch_install
 }
 
 # UFW Firewall
@@ -20,6 +21,11 @@ function firewall_setup(){
 
 # Wake On Lan
 # TODO
+
+# neovim
+function neovim_install(){
+	sudo apt install -y neovim
+}
 
 # zsh
 function zsh_install(){
@@ -107,8 +113,9 @@ function docker_install(){
 	sudo usermod -aG docker $USER
 }
 
-function neofetch_install(){
-	sudo apt install -y neofetch
+function fastfetch_install(){
+	wget -P /tmp https://github.com/fastfetch-cli/fastfetch/releases/download/2.49.0/fastfetch-linux-amd64.deb
+	sudo dpkg -i /tmp/fastfetch-linux-amd64.deb
 }
 
 while true; do
@@ -124,7 +131,8 @@ while true; do
     echo "6. Install zsh plugins"
     echo "7. Enable firewall (ufw)"
     echo "8. Install docker"
-	echo "9. Install neofetch"
+	echo "9. Install fastfetch"
+	echo "10. Install neovim"
     echo "0. Exit"
 
     read -p "Please, select a option: " option
@@ -174,6 +182,11 @@ while true; do
 			neofetch_install
 			echo " "
 			echo "neofetch installed!"
+            ;;
+		10)
+			neovim_install
+			echo " "
+			echo "neovim installed!"
             ;;
         0)
             echo "Exiting..."
