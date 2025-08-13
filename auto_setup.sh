@@ -179,9 +179,9 @@ while true; do
 			echo "docker install completed!"
             ;;
 		9)
-			neofetch_install
+			fastfetch_install
 			echo " "
-			echo "neofetch installed!"
+			echo "fastfetch installed!"
             ;;
 		10)
 			neovim_install
